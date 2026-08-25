@@ -303,3 +303,7 @@ span.chip.lost::before {
   border-radius: 5px;
   color: var(--text-color);
 }
+
+.faq-item {
+  margin-bottom: 10px;
+}
