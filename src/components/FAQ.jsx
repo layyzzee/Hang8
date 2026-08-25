@@ -13,7 +13,7 @@ export default function FAQ(props) {
                     <li className="faq-item">You have a total of eight incorrect guesses before the game is over.</li>
                     <li className="faq-item">After guessing, the colour of that key on the keyboard display will turn green if correct, or red if incorrect.</li>
                     <li className="faq-item">Correctly guessed letters will be revealed in their respective positions in the word, accounting for all instances of the letter.</li>
-                    <li className="faq-item">The game ends when you either guess the word correctly or run out of guesses.</li>
+                    <li className="faq-last-item">The game ends when you either guess the word correctly or run out of guesses.</li>
                 </ul>
             </div>
             }
