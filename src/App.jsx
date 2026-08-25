@@ -15,29 +15,41 @@ import GuessCounter from "./components/GuessCounter"
 import ScreenReader from "./components/ScreenReader"
 
 export default function AssemblyEndgame() {
-
   const [currentWord, setCurrentWord] = useState(() => getDailyWord().toUpperCase())
   const [guessedLetters, setGuessedLetters] = useState([])
   const [theme, setTheme] = useState("dark")
+
+  const alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("")
+  const numGuessesLeft = languages.length - 1
+  const wrongGuessCount = guessedLetters.filter(letter =>
+    !currentWord.includes(letter)).length
+  const isGameWon = currentWord.split("").every(letter => guessedLetters.includes(letter))
+  const isGameLost = wrongGuessCount >= numGuessesLeft
+  const isGameOver = isGameWon || isGameLost
+  const lastGuessedLetter = guessedLetters[guessedLetters.length - 1]
+
+  function guessLetter(letter) {
+    setGuessedLetters(prev => prev.includes(letter) ? prev : [...prev, letter])
+  }
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme)
   }, [theme])
 
-
-  const wrongGuessCount = guessedLetters.filter(letter =>
-    !currentWord.includes(letter)).length
-
-  const alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("")
-  function guessLetter(letter) {
-    setGuessedLetters(prev => prev.includes(letter) ? prev : [...prev, letter])
-  }
-
-  const numGuessesLeft = languages.length - 1
-  const isGameWon = currentWord.split("").every(letter => guessedLetters.includes(letter))
-  const isGameLost = wrongGuessCount >= numGuessesLeft
-  const isGameOver = isGameWon || isGameLost
-  const lastGuessedLetter = guessedLetters[guessedLetters.length - 1]
+  useEffect(() => {
+    function handleKeyDown(event) {
+      const key = event.key.toUpperCase();
+      if (event.ctrlKey || event.metaKey || event.altKey) return;
+      if (isGameOver) return;
+      if (alphabet.includes(key)) {
+        guessLetter(key);
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isGameOver, guessedLetters, currentWord]);
 
 
   return (
