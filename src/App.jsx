@@ -13,11 +13,13 @@ import Share from "./components/Share"
 import Farewell from "./components/Farewell"
 import GuessCounter from "./components/GuessCounter"
 import ScreenReader from "./components/ScreenReader"
+import FAQ from "./components/FAQ"
 
 export default function AssemblyEndgame() {
   const [currentWord, setCurrentWord] = useState(() => getDailyWord().toUpperCase())
   const [guessedLetters, setGuessedLetters] = useState([])
   const [theme, setTheme] = useState("dark")
+  const [tutorial, setTutorial] = useState(false)
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("")
   const numGuessesLeft = languages.length - 1
@@ -30,6 +32,10 @@ export default function AssemblyEndgame() {
 
   function guessLetter(letter) {
     setGuessedLetters(prev => prev.includes(letter) ? prev : [...prev, letter])
+  }
+
+  function toggleTutorial() {
+    setTutorial(prev => !prev)
   }
 
   useEffect(() => {
@@ -78,6 +84,10 @@ export default function AssemblyEndgame() {
         currentWord={currentWord}
         guessedLetters={guessedLetters}
         isGameLost={isGameLost}
+      />
+      <FAQ 
+        tutorial={tutorial}
+        toggleTutorial={toggleTutorial}
       />
       <ScreenReader
         lastGuessedLetter={lastGuessedLetter}
