@@ -1,10 +1,11 @@
 export default function FAQ(props) {
-    const title = "How To Play 💡"
+    const activeTitle = "How To Play ⬆️"
+    const inactiveTitle = "How To Play ⬇️"
     return (
         <div className="faq-container">
             <button className="faq-button"
                 onClick={props.toggleTutorial}>
-                {title}
+                {props.tutorial ? activeTitle : inactiveTitle}
             </button>
             {props.tutorial && <div className="faq-content">
                 <p>Guess the daily word by selecting letters from the alphabet. You have a total of eight incorrect guesses before the game is over.</p>
