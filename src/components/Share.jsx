@@ -8,14 +8,14 @@ export default function Share({ currentWord, guessedLetters, isGameWon }) {
 
     const correctGuesses = guessedLetters.filter(letter => currentWord.includes(letter)).length
 
-    const hangmanNumber = Math.floor((new Date() - new Date("2026-08-17"))
+    const hangmanNumber = Math.floor((new Date() - new Date("2026-08-25"))
         / (1000 * 60 * 60 * 24)) + 1
 
 async function shareResults() {
-const shareText =`🎮 HangFive #${hangmanNumber} ${correctGuesses}/5
+const shareText =`🎮 Hang8 #${hangmanNumber} ${correctGuesses}/5
 ${guessResults}
 ${isGameWon ?
-`Won in ${guessedLetters.length} guesses\n` : ""}Play here: https://layyzzee.github.io/HangFive/`
+`Won in ${guessedLetters.length} guesses\n` : ""}Play here: https://layyzzee.github.io/Hang8/`
 
         try {
             await navigator.clipboard.writeText(shareText)
