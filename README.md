@@ -2,7 +2,7 @@
 
 A responsive Hangman game built with **React** and **Vite** as a front-end portfolio project.
 
-## 🎮 Live Demo **[Play Hang8](https://layyzzee.github.io/Hang8/)**
+## 🎮 **[Live Demo](https://layyzzee.github.io/Hang8/)**
 
 No installation required — the game is hosted online and can be played directly in your browser.
 
