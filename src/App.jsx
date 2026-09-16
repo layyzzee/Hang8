@@ -1,16 +1,14 @@
 import { useState, useEffect } from "react"
-import { getDailyWord, getFarewellText } from "./utils"
+import { getDailyWord } from "./utils"
 import { languages } from "./languages"
 import Confetti from "react-confetti"
-import clsx from "clsx"
 import ToggleDark from "./components/ToggleDark"
 import Header from "./components/Header"
 import Status from "./components/Status"
-import Languages from "./components/Languages"
+import WrongGuesses from "./components/WrongGuesses"
 import CurrentWord from "./components/CurrentWord"
 import Keyboard from "./components/Keyboard"
 import Share from "./components/Share"
-import Farewell from "./components/Farewell"
 import GuessCounter from "./components/GuessCounter"
 import ScreenReader from "./components/ScreenReader"
 import FAQ from "./components/FAQ"
@@ -69,23 +67,20 @@ export default function AssemblyEndgame() {
         theme={theme}
         setTheme={setTheme} />
       <Header />
-      {isGameOver ? <Status
-        isGameWon={isGameWon} /> : <Farewell
-        wrongGuessCount={wrongGuessCount}
-        guessedLetters={guessedLetters}
-        currentWord={currentWord} />}
+      {isGameOver && <Status isGameWon={isGameWon} />}
       <GuessCounter
         numGuessesLeft={numGuessesLeft}
         wrongGuessCount={wrongGuessCount} />
-      <Languages
-        wrongGuessCount={wrongGuessCount}
+      <WrongGuesses
+        currentWord={currentWord}
+        guessedLetters={guessedLetters}
       />
       <CurrentWord
         currentWord={currentWord}
         guessedLetters={guessedLetters}
         isGameLost={isGameLost}
       />
-      <FAQ 
+      <FAQ
         tutorial={tutorial}
         toggleTutorial={toggleTutorial}
       />
