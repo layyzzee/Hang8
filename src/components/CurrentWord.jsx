@@ -1,4 +1,3 @@
-
 export default function CurrentWord(props) {
 
     const wordArray = [...props.currentWord]
@@ -11,7 +10,7 @@ export default function CurrentWord(props) {
             <span className="hidden-letter" key={index}>?</span>
         )
     })
-    console.log(props.guessedLetters)
+
     return (
         <div className="word-container">
             {wordElements}
