@@ -245,6 +245,10 @@ body {
   margin-bottom: 0px;
 }
 
+.faq-note-mobile {
+  display: none;
+}
+
 .wrong-guesses {
   display: none;
 }
@@ -349,5 +353,13 @@ body {
     width: 100%;
     max-width: 400px;
     margin: 25px auto;
+  }
+
+  .faq-note-desktop {
+    display: none;
+  }
+
+  .faq-note-mobile {
+    display: block;
   }
 }
