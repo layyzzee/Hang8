@@ -326,6 +326,16 @@ body {
 
   .mobile-input {
     display: block;
+    position: fixed;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    border: 0;
+    padding: 0;
+  }
+
+  .mobile-input {
+    display: block;
     position: absolute;
     opacity: 0;
   }
