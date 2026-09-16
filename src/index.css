@@ -84,35 +84,6 @@ body {
   margin-top: 0px;
 }
 
-.languages-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2px;
-  max-width: 350px;
-  justify-content: center;
-  margin: 25px auto;
-}
-
-.chip {
-  border-radius: 5px;
-  padding: 5px;
-  position: relative;
-}
-
-span.chip.lost::before {
-  content: "💀";
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  font-size: 0.85rem;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
 .word-container {
   display: flex;
   justify-content: center;
@@ -197,45 +168,6 @@ span.chip.lost::before {
   font-size: 1.25rem;
 }
 
-.farewell-correct {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--correct-guess-color);
-  max-width: 250px;
-  height: 50px;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  margin: 0 auto 25px;
-}
-
-.farewell-wrong {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--incorrect-guess-color);
-  max-width: 250px;
-  height: 50px;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  margin: 0 auto 25px;
-}
-
-.farewell-empty {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--empty-guess-color);
-  max-width: 250px;
-  height: 50px;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  margin: 0 auto 25px;
-}
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -313,6 +245,17 @@ span.chip.lost::before {
   margin-bottom: 0px;
 }
 
+.wrong-guesses {
+  display: none;
+}
+
+.wrong-letters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+
 @media (max-width: 600px) {
   body {
     min-height: 100vh;
@@ -324,6 +267,33 @@ span.chip.lost::before {
   .status-container-lose {
     width: 100%;
     max-width: 400px;
+  }
+
+  .wrong-guesses {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin: 25px auto;
+  }
+
+  .wrong-guesses-title {
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  .wrong-letters {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 4px;
+  }
+
+  .wrong-letter {
+    width: 7vw;
+    height: 7vw;
+    max-width: 30px;
+    max-height: 30px;
   }
 
   .word-container {
@@ -349,7 +319,7 @@ span.chip.lost::before {
   .keyboard-button {
     width: 9vw;
     height: 9vw;
-    height: 37px;
+    max-height: 37px;
     max-width: 37px;
   }
 
