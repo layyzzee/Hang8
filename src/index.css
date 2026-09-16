@@ -256,6 +256,10 @@ body {
   gap: 4px;
 }
 
+.mobile-input {
+  display: none;
+}
+
 @media (max-width: 600px) {
   body {
     min-height: 100vh;
@@ -290,10 +294,16 @@ body {
   }
 
   .wrong-letter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 7vw;
     height: 7vw;
-    max-width: 30px;
-    max-height: 30px;
+    max-width: 25px;
+    max-height: 25px;
+    background-color: var(--incorrect-guess-color);
+    font-size: auto;
+    font-weight: bold;
   }
 
   .word-container {
@@ -311,16 +321,13 @@ body {
   }
 
   .keyboard-container {
-    width: 100%;
-    max-width: 400px;
-    gap: 5px;
+    display: none;
   }
 
-  .keyboard-button {
-    width: 9vw;
-    height: 9vw;
-    max-height: 37px;
-    max-width: 37px;
+  .mobile-input {
+    display: block;
+    position: absolute;
+    opacity: 0;
   }
 
   .share-button {

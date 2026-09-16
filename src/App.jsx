@@ -7,6 +7,7 @@ import Header from "./components/Header"
 import Status from "./components/Status"
 import WrongGuesses from "./components/WrongGuesses"
 import CurrentWord from "./components/CurrentWord"
+import MobileInput from "./components/MobileKeyboard"
 import Keyboard from "./components/Keyboard"
 import Share from "./components/Share"
 import GuessCounter from "./components/GuessCounter"
@@ -58,19 +59,20 @@ export default function AssemblyEndgame() {
 
   return (
     <main>
-      {isGameWon &&
-        <Confetti
+      {isGameWon && <Confetti
           recycle={false}
           numberOfPieces={1000}
         />}
       <ToggleDark
         theme={theme}
-        setTheme={setTheme} />
+        setTheme={setTheme} 
+      />
       <Header />
       {isGameOver && <Status isGameWon={isGameWon} />}
       <GuessCounter
         numGuessesLeft={numGuessesLeft}
-        wrongGuessCount={wrongGuessCount} />
+        wrongGuessCount={wrongGuessCount} 
+      />
       <WrongGuesses
         currentWord={currentWord}
         guessedLetters={guessedLetters}
@@ -91,16 +93,23 @@ export default function AssemblyEndgame() {
         numGuessesLeft={numGuessesLeft}
         wrongGuessCount={wrongGuessCount}
       />
+      <MobileInput
+        guessLetter={guessLetter}
+        isGameOver={isGameOver}
+        alphabet={alphabet} 
+      />
       <Keyboard
         alphabet={alphabet}
         guessedLetters={guessedLetters}
         guessLetter={guessLetter}
         currentWord={currentWord}
-        isGameOver={isGameOver} />
+        isGameOver={isGameOver} 
+      />
       {isGameOver && <Share
         currentWord={currentWord}
         guessedLetters={guessedLetters}
-        isGameWon={isGameWon} />}
+        isGameWon={isGameWon} 
+      />}
     </main>
   )
 }
