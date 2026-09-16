@@ -308,6 +308,59 @@ span.chip.lost::before {
 .faq-item {
   margin-bottom: 10px;
 }
+
 .faq-last-item {
   margin-bottom: 0px;
+}
+
+@media (max-width: 600px) {
+  body {
+    min-height: 100vh;
+    height: auto;
+    padding: 15px;
+  }
+
+  .status-container-win,
+  .status-container-lose {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .word-container {
+    gap: 4px;
+    width: 100%;
+  }
+
+  .letter,
+  .hidden-letter,
+  .letter-missed {
+    width: 10.5vw;
+    height: 10.5vw;
+    max-width: 45px;
+    max-height: 45px;
+  }
+
+  .keyboard-container {
+    width: 100%;
+    max-width: 400px;
+    gap: 5px;
+  }
+
+  .keyboard-button {
+    width: 9vw;
+    height: 9vw;
+    height: 37px;
+    max-width: 37px;
+  }
+
+  .share-button {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .faq-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 25px auto;
+  }
 }
